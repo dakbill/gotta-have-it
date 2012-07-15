@@ -1,0 +1,2 @@
+<script type='text/javascript'>$('.carousel').carousel()</script>
+<script src="/static/bootstrap/bootstrap-carousel.js">$('.carousel').carousel()</script>

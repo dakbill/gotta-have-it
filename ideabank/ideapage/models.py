@@ -1,0 +1,38 @@
+from django.db import models
+from django.contrib import admin
+from django.core.files.storage import FileSystemStorage 
+class Idea(models.Model):
+	name=models.CharField(max_length=60)
+	body= models.TextField()
+	author= models.CharField(max_length=60)
+	created= models.DateField(auto_now_add=True)
+	updated= models.DateField(auto_now=True)
+	open_source=models.BooleanField()
+	def __unicode__(self):
+        	return self.name
+class Comment(models.Model):
+	body = models.TextField()
+    	author = models.CharField(max_length=60)
+	created = models.DateField(auto_now_add=True)
+	updated = models.DateField(auto_now=True)
+	idea = models.ForeignKey(Idea,related_name='idea')
+class IdeaImage(models.Model):
+    	idea = models.ForeignKey(Idea, related_name='idea_image')
+    	image = models.ImageField(upload_to='pix')
+
+class IdeaImageInline(admin.TabularInline):
+    	model = IdeaImage
+    	extra = 3
+class IdeaAdmin(admin.ModelAdmin):
+    	list_display=('name','body','created','updated')
+    	search=('name',)
+    	list_filter=('name','created')
+
+class CommentAdmin(admin.ModelAdmin):
+    	list_display=('idea','author','body','created','updated')
+    	list_filter=('author','created')
+class CommentInline(admin.TabularInline):
+  	model=Comment
+admin.site.register(Idea,IdeaAdmin)
+admin.site.register(Comment,CommentAdmin)
+admin.site.register(IdeaImage)

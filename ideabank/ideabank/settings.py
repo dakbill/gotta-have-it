@@ -13,7 +13,7 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': 
-        dj_database_url.config(default="sqlite:/ideapage_dev.db")
+        dj_database_url.config(default="sqlite:/ideapage.db")
     
 }
 
@@ -24,7 +24,7 @@ DATABASES = {
 # timezone as the operating system.
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
-TIME_ZONE = 'America/Chicago'
+TIME_ZONE = 'Africa/Accra'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
@@ -45,7 +45,7 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = '/home/dakbill/Pictures'
+MEDIA_ROOT = '/home/aiti-student/Pictures'
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.

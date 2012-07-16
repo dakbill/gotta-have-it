@@ -154,13 +154,14 @@ textarea {
       -ms-box-sizing: border-box;
           box-sizing: border-box;
 }
+
 body {
   margin: 0;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 13px;
   line-height: 18px;
   color: #333333;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
 }
 
 a {
@@ -3575,7 +3576,6 @@ input[type="submit"].btn.btn-mini {
 }
 
 .navbar-inner {
-  position
   min-height: 40px;
   padding-right: 20px;
   padding-left: 20px;

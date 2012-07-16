@@ -6,37 +6,44 @@
 	
   </head>	
 	<body>
-		       
-		        <div class="navbar">
-		        	
-		       		    <a class="brand" href="#">
-				    &nbsp;&nbsp;IdeaBank
-				    </a>
-			     
-				 <div class="navbar-inner">
-				 <ul class="nav nav-tabs">
-				    <li class="active">
-				    <a href="#Todays's Idea" data-toggle="tab">Today's Idea</a>
-				    </li>
-				    <li><a href="#Open source" data-toggle="tab">Open source</a></li>
-				    <li><a href="#Sponsors" data-toggle="tab">Sponsors</a></li>
-				    <li><a href="#Contact us" data-toggle="tab">Contact Us</a></li>
-				    </ul>
-				 <form class="navbar-form pull-left"> <input type="text" class="span2" value='Eureka'></form>
-							  <form class="navbar-form pull-right form-inline">
-							    <input type="text" class="input-small" placeholder="Email">
-							    <input type="password" class="input-small" placeholder="Password">
+		       {%block content%}
+	    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+	<a class="brand " href="#"> &nbsp;&nbsp;<b>IdeaBank</b></a>
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          
+          <div class="nav-collapse">
+
+            <ul class="nav">
+              <li class="active"><a href="#">Today's Idea</a></li>
+              <li><a href="#Open source" data-toggle="tab">Open source</a></li>
+              <li><a href="#Sponsors" data-toggle="tab">Sponsors</a></li>
+	      <li><a href="#Contact us" data-toggle="tab">Contact Us</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        <form class="navbar-form pull-right form-inline" method='POST' action=''>
+							    <input type="text" class="input-small" placeholder="Username" name="username">
+							    <input type="password" class="input-small" placeholder="Password" name="password">
 							    <label class="checkbox">
 							    <input type="checkbox"> Remember me
 							    </label>
 							    <button type="submit" class="btn">Sign in</button>
-							    </form>
-			</div>
-			</div>
-			<div class="container-fluid">
-			<div class="container-fluid">
-					   <div class="span6">
-						    <div id="myCarousel" class="carousel slide">
+	</form>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container">
+
+      <!-- Main hero unit for a primary marketing message or call to action -->
+      <div class="hero-unit">
+         <div id="myCarousel" class="carousel slide">
 						    <!-- Carousel items -->
 						    
 						    <div class="carousel-inner">
@@ -48,43 +55,67 @@
 						    <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
 						    <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
 						    </div>
-						 <div data-spy="scroll" class="scrollspy">   
-						
-						{%block content%}
-						<p >
-						{{todays_idea.body}}
-						</p>
-						{%for comment in comments %}
+      </div>
+
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="span12">
+          <h2>{{todays_idea.name}}</h2>
+           <p>{{todays_idea.body}} </p>
+
+          <p><form>
+          	<label>
+		<input type="radio" name='vote' value='for' /> Great
+		<input type="radio" name='vote' value='against' /> Needs refining
+		</label>
+          	<a class="btn btn-danger" href="#">Vote &raquo;</a></form></p>
+        </div>
+        <div class="span12">
+          {%for comment in comments %}
 						  
 						  <div class=well>
 						   	<b>comment</b>:<br>{{comment.body}}
 						  	<br>
-			<b>created by :</b> {{comment.author}}<br><b>last updated</b>:{{comment.updated}}
+			<b>created by :</b> {{comment.author}}<br><b>last updated</b>:{{comment.updated}} <input class='pull-right' type="submit" value="edit" />
 						 </div>
 						{%endfor%}
-						<span class='span6'>
-						<form action="#" method="post" >
+	<form action="#" method="POST">
 						  Add Comment:<br />
-						  <textarea name="comments" id="comments">
-						  Hey... say something!
+						  <textarea class="span12" name="comments" id="comments" name='newcom'>Hey... say something!
 						  </textarea><br />
-						  <input type="submit" value="comment" />&nbsp;&nbsp; <input type="submit" value="edit" />
-						</form>
-						{%endblock%}
-						
-						
-						<div>
-						<form action="" method='post' class="form-inline">
-						<label>
-						<input type="radio" name='vote' value='for' /> Great
-						<input type="radio" name='vote' value='against' /> Needs refining
-						</label>
-						<button type="submit" class="btn btn-danger">Vote</button>
-						</form>
-					</div>
-				
-			</div>
-			</div>
+						  <input type="submit" value="comment" />&nbsp;&nbsp;
+	</form>
+        </div>
+       
+      </div>
+
+      <hr>
+
+      <footer>
+        <p>Designed by DAK.inc&reg;</p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+    <script src="../assets/js/jquery.js"></script>
+    <script src="../assets/js/bootstrap-transition.js"></script>
+    <script src="../assets/js/bootstrap-alert.js"></script>
+    <script src="../assets/js/bootstrap-modal.js"></script>
+    <script src="../assets/js/bootstrap-dropdown.js"></script>
+    <script src="../assets/js/bootstrap-scrollspy.js"></script>
+
+    <script src="../assets/js/bootstrap-tab.js"></script>
+    <script src="../assets/js/bootstrap-tooltip.js"></script>
+    <script src="../assets/js/bootstrap-popover.js"></script>
+    <script src="../assets/js/bootstrap-button.js"></script>
+    <script src="../assets/js/bootstrap-collapse.js"></script>
+    <script src="../assets/js/bootstrap-carousel.js"></script>
+
+    <script src="../assets/js/bootstrap-typeahead.js"></script>	       
+		       {%endblock%}
 	</body>
-	<div class='' >Designed by DAK.inc&reg;</div>
 </html>

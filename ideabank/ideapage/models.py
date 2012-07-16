@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib import admin
+from django.contrib.auth.models import User
 from django.core.files.storage import FileSystemStorage 
 class Idea(models.Model):
 	name=models.CharField(max_length=60)
@@ -16,6 +17,7 @@ class Comment(models.Model):
 	created = models.DateField(auto_now_add=True)
 	updated = models.DateField(auto_now=True)
 	idea = models.ForeignKey(Idea,related_name='idea')
+	#user=models.OneToOneField(User)
 class IdeaImage(models.Model):
     	idea = models.ForeignKey(Idea, related_name='idea_image')
     	image = models.ImageField(upload_to='pix')

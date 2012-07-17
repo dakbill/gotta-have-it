@@ -7,7 +7,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
-    url(r'^$', 'ideabank.views.home', name='home'),
+    #url(r'^$', 'ideabank.views.home', name='home'),
     # url(r'^ideabank/', include('ideabank.foo.urls')),
       url(r'^ideapage/',include('ideapage.urls')),
     # Uncomment the admin/doc line below to enable admin documentation:

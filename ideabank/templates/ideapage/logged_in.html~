@@ -11,7 +11,7 @@
       <div class="navbar-inner">
 	<a class="brand " href="#"> &nbsp;&nbsp;<b>IdeaBank</b></a>
 	<div class="btn-group pull-right">
-            <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+            <a class="btn dropdown-toggle" data-toggle="dropdown" href="out">
               <i class="icon-user"></i> {{username}}
               <span class="caret"></span>
             </a>
@@ -78,7 +78,7 @@
           {%for comment in comments %}
 						  
 						  <div class=well>
-						   	<b>comment</b>:<br>{{comment.body}}<i class="icon-remove"></i>
+						   	<b>comment</b>:<br>{{comment.body}}<i class="icon-remove pull-right"></i>
 						  	<br>
 			<b>created by :</b> {{comment.author}}<br><b>last updated</b>:{{comment.updated}} 
 		{%if username == comment.author %}<input class='pull-right' type="submit" value="edit" />{%endif%}
@@ -110,7 +110,7 @@
     <script src="../assets/js/bootstrap-transition.js"></script>
     <script src="../assets/js/bootstrap-alert.js"></script>
     <script src="../assets/js/bootstrap-modal.js"></script>
-    <script src="../assets/js/bootstrap-dropdown.js"></script>
+    <script src="/static/bootstrap/js/bootstrap-dropdown.js"></script>
     <script src="../assets/js/bootstrap-scrollspy.js"></script>
 
     <script src="../assets/js/bootstrap-tab.js"></script>

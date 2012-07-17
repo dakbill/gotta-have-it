@@ -18,13 +18,13 @@ class Comment(models.Model):
 	updated = models.DateField(auto_now=True)
 	idea = models.ForeignKey(Idea,related_name='idea')
 	#user=models.OneToOneField(User)
-class IdeaImage(models.Model):
-    	idea = models.ForeignKey(Idea, related_name='idea_image')
-    	image = models.ImageField(upload_to='pix')
+#class IdeaImage(models.Model):
+ #   	idea = models.ForeignKey(Idea, related_name='idea_image')
+    	#image = models.ImageField(upload_to='pix')
 
-class IdeaImageInline(admin.TabularInline):
-    	model = IdeaImage
-    	extra = 3
+#class IdeaImageInline(admin.TabularInline):
+ #   	model = IdeaImage
+  #  	extra = 3
 class IdeaAdmin(admin.ModelAdmin):
     	list_display=('name','body','created','updated')
     	search=('name',)
@@ -37,4 +37,4 @@ class CommentInline(admin.TabularInline):
   	model=Comment
 admin.site.register(Idea,IdeaAdmin)
 admin.site.register(Comment,CommentAdmin)
-admin.site.register(IdeaImage)
+#admin.site.register(IdeaImage)

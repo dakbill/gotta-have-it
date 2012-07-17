@@ -40,7 +40,7 @@ def logged_in(request):
 	if request.method == 'POST':
 		if ((request.POST.keys()[0])=='newcom'):
 			newcomment=request.POST.get('newcom') 
-			p=Comment(idea=todays_idea ,body=newcomment, author='link to user and get it' ,updated=datetime.now()) 
+			p=Comment(idea=todays_idea ,body=newcomment, author=username ,updated=datetime.now()) 
 			p.save()
 		elif not ((request.POST.keys()[0])=='username') and not ((request.POST.keys()[0])=='comments'):
 			pass
@@ -48,4 +48,10 @@ def logged_in(request):
 	t = loader.get_template('ideapage/logged_in.html')
 	c = Context({'todays_idea':todays_idea,'comments':comments,'username':username })
 	return HttpResponse(t.render(c))
-
+@csrf_exempt
+def out(request):
+	     logout(request)
+	     request.path='/ideapage'
+	     response = HttpResponseRedirect(request.path)
+	     response.delete_cookie('user_location')
+	     return response

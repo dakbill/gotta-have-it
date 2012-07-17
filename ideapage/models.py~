@@ -17,10 +17,10 @@ class Comment(models.Model):
 	created = models.DateField(auto_now_add=True)
 	updated = models.DateField(auto_now=True)
 	idea = models.ForeignKey(Idea,related_name='idea')
-	user=models.OneToOneField(User)
-class IdeaImage(models.Model):
-    	idea = models.ForeignKey(Idea, related_name='idea_image')
-    	image = models.ImageField(upload_to='pix')
+	#user=models.OneToOneField(User)
+#class IdeaImage(models.Model):
+ #   	idea = models.ForeignKey(Idea, related_name='idea_image')
+    	#image = models.ImageField(upload_to='pix')
 
 class IdeaImageInline(admin.TabularInline):
     	model = IdeaImage

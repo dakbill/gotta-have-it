@@ -48,4 +48,10 @@ def logged_in(request):
 	t = loader.get_template('ideapage/logged_in.html')
 	c = Context({'todays_idea':todays_idea,'comments':comments,'username':username })
 	return HttpResponse(t.render(c))
-
+@csrf_exempt
+def out(request):
+	     #logout(request)
+	     request.path='/ideapage'
+	     response = HttpResponseRedirect(request.path)
+	     response.delete_cookie('user_location')
+	     return response

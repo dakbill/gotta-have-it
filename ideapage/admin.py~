@@ -1,0 +1,17 @@
+from ideapage.models import Comment,Idea
+from django.contrib import admin
+
+class IdeaAdmin(admin.ModelAdmin):
+    list_display=('name','created','updated')
+    search=('name','body')
+    list_filter=('name','created')
+
+class CommentAdmin(admin.ModelAdmin):
+    list_display=('idea','author','body','created','updated')
+    list_filter=('author','created')
+class CommentInline(admin.TabularInline):
+  model=Comment
+admin.site.register(Idea,IdeaAdmin)
+admin.site.register(Comment,CommentAdmin)
+    
+    

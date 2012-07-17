@@ -2,7 +2,7 @@
 import dj_database_url
 import os
 SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
-AUTH_PROFILE_MODULE = 'accounts.UserProfile'
+AUTH_PROFILE_MODULE = 'accounts.Comment'
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 

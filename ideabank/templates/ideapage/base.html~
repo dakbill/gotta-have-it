@@ -77,7 +77,7 @@
 						  <div class=well>
 						   	<b>comment</b>:<br>{{comment.body}}
 						  	<br>
-			<b>created by :</b> {{comment.author}}<br><b>last updated</b>:{{comment.updated}} <input class='pull-right' type="submit" value="edit" />
+			<b>created by :</b> {{comment.author}}<br><b>last updated</b>:{{comment.updated}}
 						 </div>
 						{%endfor%}
 	</div>

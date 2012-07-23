@@ -55,3 +55,12 @@ def out(request):
 	     response = HttpResponseRedirect(request.path)
 	     response.delete_cookie('user_location')
 	     return response
+@csrf_exempt
+def edit(request):
+	key= request.POST.keys()[0]
+	todays_idea=Idea.objects.get(pk=1)
+	comment_to_edit=Comment.objects.get(pk=key)
+	comments=Comment.objects.filter(idea=todays_idea)
+	t = loader.get_template('ideapage/edit.html')
+	c = Context({'comment_to_edit':comment_to_edit,'comments':comments,'username':username,'todays_idea':todays_idea })
+	return HttpResponse(t.render(c))

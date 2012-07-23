@@ -11,7 +11,7 @@
       <div class="navbar-inner">
 	<a class="brand " href="#"> &nbsp;&nbsp;<b>IdeaBank</b></a>
 	<div class="btn-group pull-right">
-            <a class="btn dropdown-toggle" data-toggle="dropdown" href="out">
+            <a class="btn dropdown-toggle " data-toggle="dropdown" href="out">
               <i class="icon-user"></i> {{username}}
               <span class="caret"></span>
             </a>
@@ -35,6 +35,7 @@
               <li><a href="#Open source" data-toggle="tab">Open source</a></li>
               <li><a href="#Sponsors" data-toggle="tab">Sponsors</a></li>
 	      <li><a href="#Contact us" data-toggle="tab">Contact Us</a></li>
+	      <li><a href="#Search" data-toggle="tab"><input type="text" class="input-small" placeholder="Eureka" name="search"></a></li>
             </ul>
           </div><!--/.nav-collapse -->
         
@@ -81,14 +82,14 @@
 						   	<b>comment</b>:<br>{{comment.body}}<i class="icon-remove pull-right"></i>
 						  	<br>
 			<b>created by :</b> {{comment.author}}<br><b>last updated</b>:{{comment.updated}} 
-		{%if username == comment.author %}<input class='pull-right' type="submit" value="edit" />{%endif%}
+		{%if username == comment.author %}<form action='edit' method='POST'><input class='pull-right btn-danger' type="submit" name={{comment.id}} value="edit" /></form>{%endif%}
 						 </div>
 						{%endfor%}
 	<form action="" method="POST">
 						  Add Comment:<br />
 						  <textarea class="span12"  name='newcom'>Hey... say something!
 						  </textarea><br />
-						  <input type="submit" value="comment" />&nbsp;&nbsp;
+						  <input type="submit" class='btn btn-danger' value="comment" />&nbsp;&nbsp;
 	</form>
         </div>
        
